@@ -1,6 +1,6 @@
 {
   "hosting": {
-    "public": "dist/ndaychallengee",
+    "public": "dist/ndaychallenge",
     "ignore": [
       "firebase.json",
       "**/.*",
