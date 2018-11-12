@@ -3,7 +3,7 @@
     <button type="button" class="btn btn-primary btn-lg btn-block" (click)="openModal(template)">Create New Challenge</button>
     <ul *ngIf="challenges?.length" class="list-group">
       <li *ngFor="let challenge of challenges" class="list-group-item">
-        <a [routerLink]="['/my-challenges', challenge.id]">{{challenge.description}}</a>
+        <a [routerLink]="['/challenges', authService.authState.uid, challenge.id]">{{challenge.description}}</a>
         <button type="button" class="close" (click)="onDeleteChallenge(challenge.id)" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
@@ -22,7 +22,7 @@
       <form #newChallengeForm="ngForm" (ngSubmit)="onNewChallenge()">
         <div class="form-group">
           <label for="description">Challenge description</label>
-          <input 
+          <input
             type="text"
             [(ngModel)]="challengeModel.description"
             name="description"
@@ -34,7 +34,7 @@
         </div>
         <div class="form-group">
           <label for="period">Challenge period in days</label>
-          <input 
+          <input
             type="number"
             [(ngModel)]="challengeModel.period"
             name="period"
@@ -45,7 +45,7 @@
         </div>
         <div class="form-group">
           <label for="elapsedPeriod">Your progress</label>
-          <input 
+          <input
             type="number"
             [(ngModel)]="challengeModel.elapsedPeriod"
             name="elapsedPeriod"

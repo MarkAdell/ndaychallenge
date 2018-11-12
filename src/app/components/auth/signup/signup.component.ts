@@ -24,10 +24,10 @@ export class SignupComponent implements OnInit {
   onSignUp(): void {
     this.authService.signUpWithEmail(this.userModel.email, this.userModel.password)
       .then(() => {
-        return this.userService.addUser({ id: this.authService.authState.uid, name: this.userModel.name, email: this.userModel.email });
+        return this.userService.addUser({ id: this.authService.authState.user.uid, name: this.userModel.name, email: this.userModel.email });
       }).then(() => {
         this._flashMessagesService.show('You are sigend up!', { cssClass: 'alert-success', timeout: 2000 });
-        this.router.navigate(['/my-challenges']);
+        this.router.navigate(['/challenges']);
       }).catch(err => {
         const errMessage = err.toString().split(': ')[1];
         this._flashMessagesService.show(errMessage, { cssClass: 'alert-danger', timeout: 2000 });

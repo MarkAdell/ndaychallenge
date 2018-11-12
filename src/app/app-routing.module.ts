@@ -12,8 +12,8 @@ const appRoutes: Routes = [
     { path: '', component: LandingComponent },
     { path: 'signup', component: SignupComponent, canActivate: [NotAuthGuard] },
     { path: 'signin', component: SigninComponent, canActivate: [NotAuthGuard] },
-    { path: 'my-challenges', component: ChallengeListComponent, canActivate: [AuthGuard]},
-    { path: 'my-challenges/:id', component: ChallengeComponent, canActivate: [AuthGuard] },
+    { path: 'challenges', component: ChallengeListComponent, canActivate: [AuthGuard]},
+    { path: 'challenges/:userId/:challengeId', component: ChallengeComponent, canActivate: [AuthGuard] },
     { path: '**', redirectTo: '' }
 ];
 

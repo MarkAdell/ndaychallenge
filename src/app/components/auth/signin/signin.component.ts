@@ -19,7 +19,7 @@ export class SigninComponent implements OnInit {
     this.authService.loginWithEmail(this.userModel.email, this.userModel.password)
       .then(() => {
         this._flashMessagesService.show('You are sigend in!', { cssClass: 'alert-success', timeout: 2000 });
-        this.router.navigate(['/my-challenges']);
+        this.router.navigate(['/challenges']);
       }).catch(err => {
         const errMessage = err.toString().split(': ')[1];
         this._flashMessagesService.show(errMessage, { cssClass: 'alert-danger', timeout: 2000 });

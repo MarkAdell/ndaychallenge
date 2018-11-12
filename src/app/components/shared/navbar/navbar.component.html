@@ -10,7 +10,7 @@
         <a routerLink="/" class="nav-link">Home</a>
       </li>
       <li *ngIf="authService.authState" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}" class="nav-item">
-        <a routerLink="/my-challenges" class="nav-link">Challenge List</a>
+        <a routerLink="/challenges" class="nav-link">Challenge List</a>
       </li>
     </ul>
     <ul class="navbar-nav ml-auto">

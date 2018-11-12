@@ -1,7 +1,7 @@
 .landing-container {
   padding: 5% 0;
   p {
-    font-size: 1.5em;
+    font-size: 1.7em;
   }
 }
 
@@ -31,5 +31,11 @@ h1:after {
   }
   img {
     width: 100%;
+  }
+}
+
+@media (max-width: 991px) {
+  .landing-container p {
+    font-size: 1.5em;
   }
 }

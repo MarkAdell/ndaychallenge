@@ -15,6 +15,7 @@ import * as moment from 'moment';
 export class ChallengeComponent implements OnInit {
 
   challengeId: string;
+  userId: string;
   challenge: Challenge;
   challengeDays: any[] = [];
 
@@ -27,10 +28,10 @@ export class ChallengeComponent implements OnInit {
 
   onDayFinish(clickedDayNumber) {
     const dayToFinish = this.challengeDays.find(day => day.isDayFinished === false);
-    if (dayToFinish && clickedDayNumber > dayToFinish.dayNumber) {
+    if (dayToFinish && clickedDayNumber > dayToFinish.dayNumber && this.isMyBoard) {
       swal({ type: 'error', text: `You must finish day number ${dayToFinish.dayNumber} first` });
       return;
-    } else if (!dayToFinish || dayToFinish && clickedDayNumber < dayToFinish.dayNumber) {
+    } else if (!dayToFinish || dayToFinish && clickedDayNumber < dayToFinish.dayNumber || !this.isMyBoard) {
       return;
     }
     const todaysDate = moment().format('DD/MM/YYYY');
@@ -71,7 +72,7 @@ export class ChallengeComponent implements OnInit {
     }).then((result) => {
       if (result.value) {
         this.challengeService.updateChallenge(
-          this.authService.authState.uid,
+          this.userId,
           this.challengeId,
           { elapsedPeriod: 0, lastDayFinished: '' }
         );
@@ -90,10 +91,15 @@ export class ChallengeComponent implements OnInit {
     }
   }
 
+  get isMyBoard(): boolean {
+    return this.userId === this.authService.authState.uid;
+  }
+
   ngOnInit() {
     this.route.params.subscribe(params => {
-      this.challengeId = params['id'];
-      this.userService.getUserChallenge(this.authService.authState.uid, this.challengeId).valueChanges()
+      this.userId = params['userId'];
+      this.challengeId = params['challengeId'];
+      this.userService.getUserChallenge(this.userId, this.challengeId).valueChanges()
         .subscribe(challenge => {
           this.challenge = challenge as Challenge;
           this.buildChallengeDays();
