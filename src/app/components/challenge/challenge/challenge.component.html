@@ -1,0 +1,11 @@
+<section class="challenge-container">
+  <h1> {{challenge?.description}} </h1>
+  <div class="rest-btn-wrapper">
+    <button class="btn btn-danger" (click)="onResetChallenge()">Reset Challenge</button>
+  </div>
+  <div class="row challenge-days-container">
+    <div *ngFor="let day of challengeDays" class="col-4 col-sm-3 day-wrapper">
+      <div [ngClass]="{'day-finished': day.isDayFinished}" (click)="onDayFinish(day.dayNumber)" class="day">{{day.dayNumber}}</div>
+    </div>
+  </div>
+</section>

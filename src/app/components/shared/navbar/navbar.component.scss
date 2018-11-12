@@ -1,0 +1,46 @@
+nav a {
+  cursor: pointer;
+}
+
+.bg-turquoise {
+  background-color: #00d191;
+}
+  
+.navbar {
+  padding: 1% 10% !important;
+}
+
+.navbar-light .navbar-nav .nav-link {
+  font-size: 1.5em;
+  color: #fff;
+}
+
+.navbar-light .navbar-brand {
+  font-size: 1.7em;
+  font-weight: bold;
+  color: #fff;
+}
+
+.navbar-nav .nav-link {
+  padding: .5rem !important;
+}
+
+.navbar-light .navbar-nav .active:after {
+  content: ""; 
+  display: block;
+  margin: -5px auto;
+  width: 40%;
+  border-bottom: 1px solid #fff;
+}
+
+@media (max-width: 991px) {
+  .navbar-light .navbar-brand {
+    font-size: 1.4em;
+  }
+  .navbar-light .navbar-nav .nav-link {
+    text-align: center;
+  }
+  .navbar-light .navbar-nav .active:after {
+    margin: 0 auto;
+  }
+}

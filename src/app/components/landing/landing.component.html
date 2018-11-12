@@ -1,0 +1,37 @@
+<section class="landing-container">
+  <div class="how-it-works-wrapper">
+    <h1>How does it work?</h1>
+    <div class="row how-it-works-sec">
+      <div class="col-12 col-md-6 text-wrapper">
+        <p>{{ landingPageData?.sec1Text }}</p>
+      </div>
+      <div class="col-12 col-md-6">
+        <img src="{{ landingPageData?.sec1Img }}" alt="How it works">
+      </div>
+    </div>
+      <div class="row how-it-works-sec">
+        <div class="col-12 col-md-6 order-2 order-md-1">
+          <img src="{{ landingPageData?.sec2Img }}"
+            alt="How it works">
+        </div>
+        <div class="col-12 col-md-6 order-1 order-md-2 text-wrapper">
+          <p>{{ landingPageData?.sec2Text }}</p>
+        </div>
+      </div>
+    <div class="row how-it-works-sec">
+      <div class="col-12 col-md-6 text-wrapper">
+        <p>{{ landingPageData?.sec3Text }}</p>
+      </div>
+      <div class="col-12 col-md-6">
+        <img src="{{ landingPageData.sec3Img }}" alt="How it works">
+      </div>
+    </div>
+  </div>
+  <div class="why-useful-wrapper">
+    <h1>Why is it useful?</h1>
+    <p>{{ landingPageData?.sec4Text }}</p>
+  </div>
+  <div class="text-center">
+    <button (click)="onTryNow()" class="btn btn-primary btn-lg">Try It Now For Free</button>
+  </div>
+</section>

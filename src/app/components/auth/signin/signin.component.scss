@@ -1,0 +1,19 @@
+.signin-container {
+  padding-top: 5%;
+}
+
+form {
+  width: 40%;
+  margin: 0 auto;
+}
+
+form button {
+  padding-left: 2rem;
+  padding-right: 2rem;
+}
+
+@media (max-width: 991px) {
+  form {
+    width: 90%;
+  }
+}

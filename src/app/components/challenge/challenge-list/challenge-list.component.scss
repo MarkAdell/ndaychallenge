@@ -1,0 +1,26 @@
+.challenge-list-container {
+  padding-top: 5%;
+}
+
+.challenge-list {
+  margin: 0 auto;
+  width: 30%;
+}
+
+.challenge-list button {
+  margin-bottom: 2%;
+}
+
+form label {
+  font-size: 1.2em;
+}
+
+// :host >>> .modal-dialog {
+//     margin-top: 10rem !important;
+// }
+
+@media(max-width: 991px) {
+  .challenge-list {
+    width: 90%;
+  }
+}

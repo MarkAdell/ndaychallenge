@@ -1,0 +1,19 @@
+<section class="signup-container">
+  <form #newUserForm="ngForm" (ngSubmit)="onSignUp()">
+    <div class="form-group">
+      <label for="name"></label>
+      <input type="text" [(ngModel)]="userModel.name" name="name" class="form-control" placeholder="Enter full name" id="name" required>
+    </div>
+    <div class="form-group">
+      <label for="email"></label>
+      <input type="email"  [(ngModel)]="userModel.email" name="email" class="form-control" placeholder="Enter email" id="email" required email>
+    </div>
+    <div class="form-group">
+      <label for="pwd"></label>
+      <input type="password" [(ngModel)]="userModel.password" name="password" class="form-control" placeholder="Enter password" id="pwd" required>
+    </div>
+    <div class="text-center">
+      <button type="submit" class="btn btn-primary" [disabled]="!newUserForm.form.valid">Sign Up</button>
+    </div>
+  </form>
+</section>

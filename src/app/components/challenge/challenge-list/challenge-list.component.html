@@ -1,0 +1,63 @@
+<section class="challenge-list-container">
+  <div class="challenge-list">
+    <button type="button" class="btn btn-primary btn-lg btn-block" (click)="openModal(template)">Create New Challenge</button>
+    <ul *ngIf="challenges?.length" class="list-group">
+      <li *ngFor="let challenge of challenges" class="list-group-item">
+        <a [routerLink]="['/my-challenges', challenge.id]">{{challenge.description}}</a>
+        <button type="button" class="close" (click)="onDeleteChallenge(challenge.id)" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </li>
+    </ul>
+    <p *ngIf="!challenges?.length" class="text-center mt-3">You didn't create any challenges.</p>
+  </div>
+  <ng-template #template>
+    <div class="modal-header">
+      <h4 class="modal-title">New Challenge</h4>
+      <button type="button" class="close pull-right" aria-label="Close" (click)="modalRef.hide()">
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
+    <div class="modal-body">
+      <form #newChallengeForm="ngForm" (ngSubmit)="onNewChallenge()">
+        <div class="form-group">
+          <label for="description">Challenge description</label>
+          <input 
+            type="text"
+            [(ngModel)]="challengeModel.description"
+            name="description"
+            class="form-control"
+            placeholder="ex: Quit Smoking"
+            id="description"
+            required
+          >
+        </div>
+        <div class="form-group">
+          <label for="period">Challenge period in days</label>
+          <input 
+            type="number"
+            [(ngModel)]="challengeModel.period"
+            name="period"
+            class="form-control"
+            id="period"
+            required
+          >
+        </div>
+        <div class="form-group">
+          <label for="elapsedPeriod">Your progress</label>
+          <input 
+            type="number"
+            [(ngModel)]="challengeModel.elapsedPeriod"
+            name="elapsedPeriod"
+            class="form-control"
+            id="elapsedPeriod"
+            required
+          >
+        </div>
+        <div class="text-center">
+          <button type="submit" class="btn btn-primary" [disabled]="!newChallengeForm.form.valid || !newChallengeButtonActive">Create</button>
+        </div>
+      </form>
+    </div>
+  </ng-template>
+</section>
